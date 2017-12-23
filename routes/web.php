@@ -14,8 +14,13 @@
 
 
 
+//$stripe=resolve('App\Billing\Stripe');
 
-Route::get('/','PostsController@bindex');
+
+
+
+
+Route::get('/','PostsController@bindex')->name('home');
 
 Route::get('bposts/create','PostsController@create');
 Route::post('bposts','PostsController@store');
@@ -23,3 +28,16 @@ Route::post('bposts','PostsController@store');
 Route::get('/posts/{post}','PostsController@show');
 
 Route::Post('/posts/{post}/comment','CommentsController@store');
+
+Route::get('/register','RegistrationController@create');
+Route::post('/register','RegistrationController@store');
+
+
+Route::get('/login','SessionsController@create');
+Route::post('/login','SessionsController@store');
+
+
+
+Route::get('/logout','SessionsController@destroy');
+
+
